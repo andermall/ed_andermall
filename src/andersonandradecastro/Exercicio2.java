@@ -185,6 +185,7 @@ public class Exercicio2 {
             System.out.println("Digite o nome " + i);
             arr.insert(entrada.nextLine());
         }
+        
 
         System.out.println("Muito Bem! Agora que você cadastrou os nomes, digite uma letra");
 
