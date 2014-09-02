@@ -12,4 +12,11 @@ package ExercicioAvancado;
  */
 public class Usuario {
     
+    public static void main(String[] args) {
+        int maxSize = 100;            // coloca em uma constante o tamanho do vetor
+        Estrutura err = new Estrutura(maxSize);
+        
+        
+    }
+    
 }
