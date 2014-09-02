@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ExercicioAvancado;
 
 /**
@@ -11,10 +10,16 @@ package ExercicioAvancado;
  * @author Aluno
  */
 public class Jogador {
-    
+
     private String nome;
     private int idade;
     private float altura;
+
+    public Jogador(String n, int i, float a) {                               // comentario aqui
+        nome = n;
+        idade = i;
+        altura = a;
+    }
 
     public String getNome() {
         return nome;
@@ -39,7 +44,5 @@ public class Jogador {
     public void setAltura(float altura) {
         this.altura = altura;
     }
-    
-    
-    
+
 }
