@@ -11,7 +11,6 @@ package ExercicioAvancado;
  */
 public class Estrutura {
 
-    { 
     private Jogador[] a;                 // cria a referência para um vetor do tipo Jogador
     private int nElems;               // nElems controla quantos elementos o vetor terá ...
     //-----------------------------------------------------------
@@ -39,24 +38,27 @@ public class Estrutura {
 
         while (true) {
             curIn = (lowerBound + upperBound) / 2;
-            if (a[curIn].getNome().equals(searchKey)) //mudamos aqui para comparar nome
-            {
+            if (upperBound < 0) {
+                return nElems;
+            }
+            if (a[curIn].getIdade() == searchKey) {
                 return curIn;              // encontrei!
             } else if (lowerBound > upperBound) {
                 return nElems;             // não pude encontra-lo
             } else // divide o range
             {
-                //O metodo compareTo do tipo String, retorna positivo se a primeira
-                //String for maior que a segunda e negativo se for o contrário
-                if (a[curIn].getIdade() < searchKey) //mudamos aqui para comparar nome
-                {
+                if (a[curIn].getIdade() < searchKey) {
                     lowerBound = curIn + 1; // esta na metade de cima
                 } else {
                     upperBound = curIn - 1; // esta na metade de baixo
                 }
+
+                if (lowerBound > upperBound) {
+                    return curIn;
+                }
             }  // fim do else de divisão de range
         }  // fim do while
-    }  // fim do método de pesquisa binária()  
+    }  // fim do método de pesquisa binária()
 
     //--------------------------------------------------------------
 //Método de Busca e imprime jogador com o nome - busca linear
@@ -70,31 +72,24 @@ public class Estrutura {
         }
     }
 
-    public int FindByName(String searchKey) {
+    public int findByName(String searchKey) {
         int j;
         for (j = 0; j < nElems; j++) {
             if (a[j].getNome().equals(searchKey)) {
                 break;
             }
         }
-        
+
         return j;
     }
 
 //--------------------------------------------------------------
 //Método de inserção ORDENADA com idade!!! ....
 //--------------------------------------------------------------
-    public void insert(String nome, int idade, float altura) // insere o elemento no vetor
+    public void insert(String nome, int idade, double altura) // insere o elemento no vetor
     {
-        int j;
-        for (j = 0; j < nElems; j++) // localiza onde esse elemento se encaixa
-        //usamos aqui o metodo compareTo para String
-        {
-            if (a[j].getIdade() > 0) //mudado
-            {
-                break;
-            }
-        }
+        int j = findByIdade(idade);
+        
         for (int k = nElems; k > j; k--) // move os elementos maiores uma posição p/ frente
         {
             a[k] = a[k - 1];

@@ -13,9 +13,9 @@ public class Jogador {
 
     private String nome;
     private int idade;
-    private float altura;
+    private double altura;
 
-    public Jogador(String n, int i, float a) {                               // comentario aqui
+    public Jogador(String n, int i, double a) {                               // comentario aqui
         nome = n;
         idade = i;
         altura = a;
@@ -44,11 +44,11 @@ public class Jogador {
         this.idade = idade;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
 
-    public void setAltura(float altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
