@@ -20,6 +20,13 @@ public class Jogador {
         idade = i;
         altura = a;
     }
+    
+    public void displayJogador()
+      {
+      System.out.print("  Nome: " + nome);
+      System.out.print(", Idade: " + idade);
+      System.out.println(", Altura: " + altura);
+      }
 
     public String getNome() {
         return nome;

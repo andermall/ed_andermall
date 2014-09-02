@@ -32,7 +32,7 @@ public class Estrutura {
     //--------------------------------------------------------------
 //Método de pesquisa binária com String
 //--------------------------------------------------------------
-    public int findByName(String searchKey) {
+    public int findByIdade(int searchKey) {
         int lowerBound = 0;
         int upperBound = nElems - 1;
         int curIn;
@@ -46,9 +46,9 @@ public class Estrutura {
                 return nElems;             // não pude encontra-lo
             } else // divide o range
             {
-             //O metodo compareTo do tipo String, retorna positivo se a primeira
+                //O metodo compareTo do tipo String, retorna positivo se a primeira
                 //String for maior que a segunda e negativo se for o contrário
-                if (a[curIn].getNome().compareTo(searchKey) < 0) //mudamos aqui para comparar nome
+                if (a[curIn].getIdade() < searchKey) //mudamos aqui para comparar nome
                 {
                     lowerBound = curIn + 1; // esta na metade de cima
                 } else {
@@ -59,44 +59,30 @@ public class Estrutura {
     }  // fim do método de pesquisa binária()  
 
     //--------------------------------------------------------------
-//Método de pesquisa binária para imprimir valores iguais
+//Método de Busca e imprime jogador com o nome - busca linear
 //--------------------------------------------------------------
-    public boolean findAd(String searchKey) {
-        int lowerBound = 0;
-        int upperBound = nElems - 1;
-        int curIn;
+    public void DisplayByName(String searchKey) {
+        int j;
+        for (j = 0; j < nElems; j++) {
+            if (a[j].getNome().equals(searchKey)) {
+                a[j].displayJogador();
+            }
+        }
+    }
 
-        while (true) {
-            curIn = (lowerBound + upperBound) / 2;
-            if (a[curIn].getNome().charAt(0) == searchKey.charAt(0)) {  //mudado p/ desafio ...
-                //Se encontrou, ele irá rodar pra cima e pra baixo, imprimindo os valores
-                for (int i = curIn; (a[i].getNome().charAt(0) == searchKey.charAt(0)); i++) { //mudado p/desafio
-                    a[i].displayJogador(); //mudado p/ imprimir todos os dados da pessoa
-                    System.out.println("==============================================");
-                }
-                for (int j = curIn - 1; (a[j].getNome().charAt(0) == searchKey.charAt(0)); j--) { //mudado p/ desafio
-                    a[j].displayJogador();//mudado p/ imprimir todos os dados da pessoa
-                    System.out.println("==============================================");
-                }
-                return true;
-            } else if (lowerBound > upperBound) {
-                return false;
-            } else // divide o range
-            {
-             //O metodo compareTo do tipo String, retorna positivo se a primeira
-                //String for maior que a segunda e negativo se for o contrário
-                if (a[curIn].getNome().compareTo(searchKey) < 0) //mudado aqui p/ desafio
-                {
-                    lowerBound = curIn + 1; // esta na metade de cima
-                } else {
-                    upperBound = curIn - 1; // esta na metade de baixo
-                }
-            }  // fim do else de divisão de range
-        }  // fim do while
-    }  // fim do método de pesquisa binária()     
+    public int FindByName(String searchKey) {
+        int j;
+        for (j = 0; j < nElems; j++) {
+            if (a[j].getNome().equals(searchKey)) {
+                break;
+            }
+        }
+        
+        return j;
+    }
 
 //--------------------------------------------------------------
-//Método de inserção ORDENADA com String!!! ....
+//Método de inserção ORDENADA com idade!!! ....
 //--------------------------------------------------------------
     public void insert(String nome, int idade, float altura) // insere o elemento no vetor
     {
