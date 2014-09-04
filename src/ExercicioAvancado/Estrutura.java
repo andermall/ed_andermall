@@ -70,6 +70,13 @@ public class Estrutura {
             System.out.println("Nenhum jogador encontrado com o nome de "+searchKey);
         }
     }
+    
+    public void DisplayByPosition(int position) {
+        if (position >= 0 && position < nElems)
+            a[position].displayJogador();
+        else
+            System.out.println("Nenhum jogador encontrado na posicao "+position);        
+    }
 
     public int findByName(String searchKey) {
         int j;
