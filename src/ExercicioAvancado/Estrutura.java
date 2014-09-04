@@ -29,7 +29,7 @@ public class Estrutura {
     }
 
     //--------------------------------------------------------------
-//Método de pesquisa binária com String
+//Método de pesquisa binária com Inteiro
 //--------------------------------------------------------------
     public int findByIdade(int searchKey) {
         int lowerBound = 0;
@@ -38,26 +38,18 @@ public class Estrutura {
 
         while (true) {
             curIn = (lowerBound + upperBound) / 2;
-            if (upperBound < 0) {
-                return nElems;
-            }
             if (a[curIn].getIdade() == searchKey) {
-                return curIn;              // encontrei!
+                return curIn;
             } else if (lowerBound > upperBound) {
-                return nElems;             // não pude encontra-lo
-            } else // divide o range
-            {
+                return nElems;
+            } else {
                 if (a[curIn].getIdade() < searchKey) {
-                    lowerBound = curIn + 1; // esta na metade de cima
+                    lowerBound = curIn + 1;
                 } else {
-                    upperBound = curIn - 1; // esta na metade de baixo
+                    upperBound = curIn - 1;
                 }
-
-                if (lowerBound > upperBound) {
-                    return curIn;
-                }
-            }  // fim do else de divisão de range
-        }  // fim do while
+            }
+        }
     }  // fim do método de pesquisa binária()
 
     //--------------------------------------------------------------
@@ -82,6 +74,20 @@ public class Estrutura {
 
         return j;
     }
+    
+    private int getIndexInsert(int idade)
+    {
+        int j = 0;
+        if (nElems != 0) {
+            for (j = 0; j < nElems; j++) // localiza onde esse elemento se encaixa
+            {
+                if (a[j].getIdade() > idade) {
+                    break;
+                }
+            }         
+        }
+        return j;
+    }
 
 //--------------------------------------------------------------
 //Método de inserção ORDENADA com idade!!! ....
@@ -89,7 +95,7 @@ public class Estrutura {
     public void insert(String nome, int idade, double altura) // insere o elemento no vetor
     {
         int j = findByIdade(idade);
-        
+
         for (int k = nElems; k > j; k--) // move os elementos maiores uma posição p/ frente
         {
             a[k] = a[k - 1];
