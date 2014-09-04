@@ -57,10 +57,17 @@ public class Estrutura {
 //--------------------------------------------------------------
     public void DisplayByName(String searchKey) {
         int j;
+        boolean find = false;
         for (j = 0; j < nElems; j++) {
             if (a[j].getNome().equals(searchKey)) {
                 a[j].displayJogador();
+                find = true;
+                break;
             }
+        }
+        if (!find)
+        {
+            System.out.println("Nenhum jogador encontrado com o nome de "+searchKey);
         }
     }
 
@@ -94,7 +101,7 @@ public class Estrutura {
 //--------------------------------------------------------------
     public void insert(String nome, int idade, double altura) // insere o elemento no vetor
     {
-        int j = findByIdade(idade);
+        int j = getIndexInsert(idade);
 
         for (int k = nElems; k > j; k--) // move os elementos maiores uma posição p/ frente
         {
