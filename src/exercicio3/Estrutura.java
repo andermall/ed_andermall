@@ -87,20 +87,20 @@ public class Estrutura {
         }  // fim do while
     }  // fim do método de pesquisa binária()  
     
-    public Animal buscaPorAltura(double Altura){
+    public void buscaPorAltura(double Altura){
         int index = findByAltura(Altura);
         if (index == nElems)
-            return null;
+            System.out.println("nao encontrado");
         else
-            return a[index];
+            a[index].Display();
     }            
 
-    public Animal buscaPorCor(String cor){
+    public void buscaPorCor(String cor){
         int index = findByCor(cor);
         if (index == nElems)
-            return null;
+            System.out.println("nao encontrado");
         else
-            return a[index];
+            a[index].Display();
     }            
 
     public int findByAltura(double searchKey) {
@@ -152,4 +152,9 @@ public class Estrutura {
         a[j] = new Animal(cor, altura);                  // insere o elemento na posição necessária
         nElems++;                      // incrementa a variavel de controle de tamanho
     }  // finaliza o método de inserção
+    
+    public void displayAll(){
+        for (int i = 0; i < nElems; i++)
+            a[i].Display();        
+    }
 }
