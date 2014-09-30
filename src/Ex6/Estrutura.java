@@ -80,9 +80,9 @@ public class Estrutura {
 
     private void reOrdder() {
         int j;
-        for (j = nItems - 1; j >= 0; j--) // ... começando pelo final da fila ... 
+        for (j = 0; j < nItems - 1; j++) // ... começando pelo final da fila ... 
         {
-            queArray[j + 1] = queArray[j]; // ... se for, eles vão pular uma posição "pra traz" na fila!!!
+            queArray[j] = queArray[j + 1]; // ... se for, eles vão pular uma posição "pra traz" na fila!!!
         }  // end for
     }
 
@@ -96,6 +96,7 @@ public class Estrutura {
                 + "\nPrioridade:" + prioridadeStr(queArray[0].getPrioridade())
                 + "\nComparecer  ao consultorio");
         nItems--;
+        reOrdder();
     }
 
     private String prioridadeStr(int prioridade) {
