@@ -35,9 +35,9 @@ public class usuario {
 
         while (!theList.isEmpty()) // until it's empty,
         {
-            Link aLink = theList.deleteFirst();   // deletamos o primeiro nó da lista e colocamos em aLink
-            System.out.print("Deletado ");         // 
-            aLink.displayLink();                     // mostramos o nó deletado
+            Link aLink = theList.deleteFirst();   
+            System.out.print("Deletado ");         
+            aLink.displayLink();                     
             System.out.println("");
         }
         theList.displayList();
